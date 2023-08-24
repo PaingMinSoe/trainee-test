@@ -10,6 +10,11 @@ This is a Laravel Project for Web Developer Trainee test by **Better HR**. Featu
 -   Employee Update
 -   Employee Delete
 
+```
+composer install
+```
+Run the above command first to install all necessary packages for the project. 
+
 ### **User Register - <span style="color: goldenrod;">POST</span>**
 
 > http://127.0.0.1:8000/api/register
