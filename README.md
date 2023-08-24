@@ -1,5 +1,3 @@
-<p align="center"><a href="https://betterhr.io" target="_blank"><img src="https://betterhr.io/wp-content/uploads/better-hr-dark-logo.svg" width="200" alt="Laravel Logo"></a></p>
-
 # **Web Developer Laravel Trainee Assignment by Paing Min Soe**
 
 This is a Laravel Project for Web Developer Trainee test by **Better HR**. Features are implemented as assigned.
