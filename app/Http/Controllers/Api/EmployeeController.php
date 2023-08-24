@@ -12,7 +12,7 @@ class EmployeeController extends Controller
     public function index() {
         $employees = Employee::all();
 
-        return EmployeeResource::collection($employees);
+        return response()->json(['employees' => EmployeeResource::collection($employees)]);
     }
 
     public function store(Request $request) {
@@ -26,17 +26,18 @@ class EmployeeController extends Controller
             'job' => 'required|string',
         ]);
 
-        Employee::create($validated);
+        $employee = Employee::create($validated);
 
         return response()->json([
             'message' => 'Successfully Created!',
+            'employee' => new EmployeeResource($employee),
         ]);
     }
 
     public function show($id) {
         $employee = Employee::findOrFail($id);
 
-        return new EmployeeResource($employee);
+        return response()->json(['employee' => new EmployeeResource($employee)]);
     }
 
     public function update(Request $request, $id) {
@@ -55,6 +56,7 @@ class EmployeeController extends Controller
 
         return response()->json([
             'message' => 'Sucessfully Updated!',
+            'employee' => new EmployeeResource($employee),
         ]);
 
     }
