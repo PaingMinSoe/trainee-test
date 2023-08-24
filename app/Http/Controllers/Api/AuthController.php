@@ -27,6 +27,7 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'Registration Successful',
+            'user' => $user,
             'access_token' => $token,
         ], 201);
     }
@@ -46,7 +47,13 @@ class AuthController extends Controller
                 'user' => $user,
                 'access_token' => $token,
             ]);
+        } else {
+            return response()->json([
+                'message' => 'Incorrect Credentials'
+            ],401);
         }
+
+
     }
 
     public function logout() {

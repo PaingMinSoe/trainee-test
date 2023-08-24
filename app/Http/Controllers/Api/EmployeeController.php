@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\EmployeeResource;
 use App\Models\Employee;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
@@ -26,12 +28,21 @@ class EmployeeController extends Controller
             'job' => 'required|string',
         ]);
 
-        $employee = Employee::create($validated);
+        DB::beginTransaction();
 
-        return response()->json([
-            'message' => 'Successfully Created!',
-            'employee' => new EmployeeResource($employee),
-        ]);
+        try {
+            $employee = Employee::create($validated);
+            DB::commit();
+
+            return response()->json([
+                'message' => 'Successfully Created!',
+                'employee' => new EmployeeResource($employee),
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage(),
+            ], 422);
+        }
     }
 
     public function show($id) {
@@ -52,21 +63,42 @@ class EmployeeController extends Controller
             'job' => 'required|string',
         ]);
 
-        $employee->update($validated);
+        DB::beginTransaction();
 
-        return response()->json([
-            'message' => 'Sucessfully Updated!',
-            'employee' => new EmployeeResource($employee),
-        ]);
+        try {
+            $employee->update($validated);
+            DB::commit();
+
+            return response()->json([
+                'message' => 'Sucessfully Updated!',
+                'employee' => new EmployeeResource($employee),
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage(),
+            ], 422);
+        }
+
 
     }
 
     public function destroy($id) {
         $employee = Employee::find($id);
-        $employee->delete();
 
-        return response()->json([
-            'message' => 'Employee Deleted!',
-        ]);
+        DB::beginTransaction();
+
+        try {
+            $employee->delete();
+            DB::commit();
+
+            return response()->json([
+                'message' => 'Employee Deleted!',
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage(),
+            ], 422);
+        }
+
     }
 }

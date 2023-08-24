@@ -21,7 +21,7 @@ class EmployeeResource extends JsonResource
             'email' => $this->email,
             'phone_no' => $this->phone_no,
             'address' => $this->address,
-            'date_of_birth' => Carbon::parse($this->date_of_birth)->format('Y-m-d'),
+            'date_of_birth' => Carbon::parse($this->date_of_birth)->format('d-M-Y'),
             'gender' => $this->gender,
             'job' => $this->job,
         ];
