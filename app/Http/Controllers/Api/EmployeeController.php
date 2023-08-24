@@ -39,6 +39,7 @@ class EmployeeController extends Controller
                 'employee' => new EmployeeResource($employee),
             ]);
         } catch (Exception $e) {
+            DB::rollback();
             return response()->json([
                 'message' => $e->getMessage(),
             ], 422);
@@ -74,6 +75,7 @@ class EmployeeController extends Controller
                 'employee' => new EmployeeResource($employee),
             ]);
         } catch (Exception $e) {
+            DB::rollback();
             return response()->json([
                 'message' => $e->getMessage(),
             ], 422);
@@ -95,6 +97,7 @@ class EmployeeController extends Controller
                 'message' => 'Employee Deleted!',
             ]);
         } catch (Exception $e) {
+            DB::rollback();
             return response()->json([
                 'message' => $e->getMessage(),
             ], 422);
