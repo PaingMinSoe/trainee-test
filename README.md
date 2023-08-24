@@ -20,7 +20,11 @@ After all necessary packages are installed, create .env file by referring to .en
 After all the steps are done. Run the commands below and project setup will be completed.
 ```
 php artisan key:generate
+```
+```
 php artisan migrate --seed
+```
+```
 php artisan passport:install
 ```
 
