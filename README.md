@@ -16,8 +16,8 @@ Run the command shown below in the terminal first to install all necessary packa
 composer install
 ```
 
-After all necessary packages are installed, create .env file by copying .env.example file and run the below commands to generate the key and migrate the database with necessary data.
-The command prompt will ask whether to create database if not exists or you can create the database beforehand. 
+After all necessary packages are installed, create .env file by copying .env.example file and create a database for the project.
+After all the steps are done. Run the commands below and project setup will be completed.
 ```
 php artisan key:generate
 php artisan migrate --seed
