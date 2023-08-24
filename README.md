@@ -21,6 +21,7 @@ After all the steps are done. Run the commands below and project setup will be c
 ```
 php artisan key:generate
 php artisan migrate --seed
+php artisan passport:install
 ```
 
 ## Project Overview
