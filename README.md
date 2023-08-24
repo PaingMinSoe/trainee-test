@@ -16,7 +16,7 @@ Run the command shown below in the terminal first to install all necessary packa
 composer install
 ```
 
-After all necessary packages are installed, create .env file by copying .env.example file and create a database for the project.
+After all necessary packages are installed, create .env file by referring to .env.example file and create a database for the project.
 After all the steps are done. Run the commands below and project setup will be completed.
 ```
 php artisan key:generate
