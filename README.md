@@ -1,6 +1,6 @@
 <p align="center"><a href="https://betterhr.com" target="_blank"><img src="https://betterhr.io/wp-content/uploads/better-hr-dark-logo.svg" width="200" alt="Laravel Logo"></a></p>
 
-## **Web Developer Laravel Trainee Assignment by Paing Min Soe**
+# **Web Developer Laravel Trainee Assignment by Paing Min Soe**
 
 This is a Laravel Project for Web Developer Trainee test by **Better HR**. Features are implemented as assigned.
 
@@ -10,10 +10,20 @@ This is a Laravel Project for Web Developer Trainee test by **Better HR**. Featu
 -   Employee Update
 -   Employee Delete
 
+## Setup
+Run the command shown below in the terminal first to install all necessary packages for the project. 
 ```
 composer install
 ```
-Run the above command first to install all necessary packages for the project. 
+
+After all necessary packages are installed, create .env file by copying .env.example file and run the below commands to generate the key and migrate the database with necessary data.
+The command prompt will ask whether to create database if not exists or you can create the database beforehand. 
+```
+php artisan key:generate
+php artisan migrate --seed
+```
+
+## Project Overview
 
 ### **User Register - <span style="color: goldenrod;">POST</span>**
 
