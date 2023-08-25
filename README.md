@@ -68,7 +68,7 @@ API middleware is applied hence user must login first to get all employees data.
 ### **Employee Create - <span style="color: goldenrod;">POST</span>**
 
 ```http
- POST http://127.0.0.1:8000/api/employees
+POST http://127.0.0.1:8000/api/employees
 ```
 
 The employee's data will be saved to the employees table.
@@ -76,7 +76,7 @@ The employee's data will be saved to the employees table.
 ### **Employee Details - <span style="color: green;">GET</span>**
 
 ```http
- POST http://127.0.0.1:8000/api/employees/{id}
+POST http://127.0.0.1:8000/api/employees/{id}
 ```
 
 Only the data of the employee with given id will be returned.
