@@ -9,19 +9,24 @@ This is a Laravel Project for Web Developer Trainee test by **Better HR**. Featu
 -   Employee Delete
 
 ## Setup
-Run the command shown below in the terminal first to install all necessary packages for the project. 
+
+Run the command shown below in the terminal first to install all necessary packages for the project.
+
 ```
 composer install
 ```
 
 After all necessary packages are installed, create .env file by referring to .env.example file and create a database for the project.
 After all the steps are done. Run the commands below and project setup will be completed.
+
 ```
 php artisan key:generate
 ```
+
 ```
 php artisan migrate --seed
 ```
+
 ```
 php artisan passport:install
 ```
@@ -29,49 +34,51 @@ php artisan passport:install
 ## Project Overview
 
 ### **User Register - <span style="color: goldenrod;">POST</span>**
-
-> http://127.0.0.1:8000/api/register
-
-Name, Email and Password are validated firstly. Upon successful validation, the data is saved in users table with encrypted password. API token is generated.
+```http
+POST http://127.0.0.1:8000/api/register
+```
+Name, Email and Password are validated firstly. Upon successful validation, the data is saved in users table with encrypted password. API access token is generated. The access token must be included in header as `Authorization: Bearer <access token>`.
 
 ### **User Login - <span style="color: goldenrod;">POST</span>**
-
-> http://127.0.0.1:8000/api/login
-
-Users can login using Email and Password. Upon successful login, API token is generated.
+```http
+POST http://127.0.0.1:8000/api/login
+```
+Users can login using Email and Password. Upon successful login, API token is generated. The access token must be included in header as `Authorization: Bearer <access token>`.
 
 ### **User Logout - <span style="color: goldenrod;">POST</span>**
-
-> http://127.0.0.1:8000/api/logout
-
+```http
+POST http://127.0.0.1:8000/api/logout
+```
 The user's API token is revoked and user is successfully logged out.
 
 ### **Employee List - <span style="color: green;">GET</span>**
-
-> http://127.0.0.1:8000/api/employees
-
+```http
+ GET http://127.0.0.1:8000/api/employees
+```
 API middleware is applied hence user must login first to get all employees data.
 
 ### **Employee Create - <span style="color: goldenrod;">POST</span>**
-
-> http://127.0.0.1:8000/api/employees
-
+```http
+ POST http://127.0.0.1:8000/api/employees
+```
 The employee's data will be saved to the employees table.
 
 ### **Employee Details - <span style="color: green;">GET</span>**
 
-> http://127.0.0.1:8000/api/employees/{id}
+```http
+ POST http://127.0.0.1:8000/api/employees/{id}
+```
 
 Only the data of the employee with given id will be returned.
 
 ### **Employee Update - <span style="color: cornflowerblue;">PUT</span>**
-
-> http://127.0.0.1:8000/api/employees/{id}
-
+```http
+PUT http://127.0.0.1:8000/api/employees/{id}
+```
 The employee's data with the given id will be modified.
 
 ### **Employee Delete - <span style="color: brown;">DELETE</span>**
-
-> http://127.0.0.1:8000/api/employees/{id}
-
+```http
+DELETE http://127.0.0.1:8000/api/employees/{id}
+```
 Existing employee data with given id will be deleted.
