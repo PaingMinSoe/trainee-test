@@ -1,3 +1,7 @@
+<div align="center">
+    <img src="https://github.com/PaingMinSoe/trainee-test/assets/61079619/6c17ab7f-93b7-487f-aea2-959e2ecc0bb3" width="100px" height="100px"/> 
+</div>
+
 # **Web Developer Laravel Trainee Assignment by Paing Min Soe**
 
 This is a Laravel Project for Web Developer Trainee test by **Better HR**. Features are implemented as assigned.
